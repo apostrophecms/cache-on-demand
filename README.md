@@ -1,6 +1,6 @@
 # cache-on-demand
 
-<a href="http://apostrophenow.org/"><img src="https://raw.githubusercontent.com/boutell/cache-on-demand/master/logos/logo-box-madefor.png" align="right" /></a>
+<a href="http://apostrophenow.org/"><img src="https://raw.githubusercontent.com/punkave/cache-on-demand/master/logos/logo-box-madefor.png" align="right" /></a>
 
 "On demand" caching that kicks in only when requests arrive simultaneously.
 
@@ -37,7 +37,7 @@ Under light load, with requests arriving far apart, every request for a given `r
 
 But under heavy load, with new requests arriving while the first request is still being processed, the additional requests are queued up. When the first response is ready, it is simply sent to all of them. And then the response is discarded, so that the next request to arrive will generate a new response with the latest content.
 
-This gives us "on demand" caching. The server is still allowed to generate new responses often, just not many of them simultaneously. It is the shortest practical lifetime for cache requests and largely  eliminates concerns about users seeing old content, as well as concerns about cache memory management.
+This gives us "on demand" caching. The server is still allowed to generate new responses often, just not many of them simultaneously. It is the shortest practical lifetime for cache requests and largely eliminates concerns about users seeing old content, as well as concerns about cache memory management.
 
 ## Make your own rules: custom hashers
 
@@ -68,7 +68,7 @@ If your main function reports an error, it is reported to the original caller an
 
 Feel free to open issues on [github](http://github.com/punkave/cache-on-demand).
 
-<a href="http://punkave.com/"><img src="https://raw.githubusercontent.com/boutell/cache-on-demand/master/logos/logo-box-builtby.png" /></a>
+<a href="http://punkave.com/"><img src="https://raw.githubusercontent.com/punkave/cache-on-demand/master/logos/logo-box-builtby.png" /></a>
 
 ## Changelog
 
