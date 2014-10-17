@@ -20,17 +20,18 @@ app.get('*', function(req, res) {
   )(req, function(err, pages) {
     return res.render({ descendants: pages });
   });
-
-  // Find pages nested under this one
-  RegExp.quote = require('regexp-quote');
-  function getDescendants(callback) {
-    // Fetch every page that starts with req.url, then a /
-    return pages.find({ slug: new RegExp('^' + RegExp.quote(req.url) + '/') }).toArray(err, pages) {
-      return callback(err, pages);
-    });
-  }
-}
 });
+
+RegExp.quote = require('regexp-quote');
+
+// Find pages nested under this one
+function getDescendants(req, callback) {
+  // Fetch every page that starts with req.url, then a /
+  return pages.find({ slug: new RegExp('^' + RegExp.quote(req.url) + '/') }).toArray(err, pages) {
+    return callback(err, pages);
+  });
+}
+
 ```
 
 Under light load, with requests arriving far apart, every request for a given `req.url` will get an individually generated response, which gives them the newest content. Just like calling `getDescendants` directly.
