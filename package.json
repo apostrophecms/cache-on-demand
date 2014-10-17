@@ -1,0 +1,32 @@
+{
+  "name": "cache-on-demand",
+  "version": "0.1.0",
+  "description": "\"On demand\" caching that kicks in only when requests arrive simultaneously.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "(cd test && mocha test)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/punkave/cache-on-demand"
+  },
+  "keywords": [
+    "caching",
+    "on",
+    "demand",
+    "caching",
+    "on",
+    "demand",
+    "async",
+    "apostrophe"
+  ],
+  "author": "P'unk Avenue LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/punkave/cache-on-demand/issues"
+  },
+  "homepage": "https://github.com/punkave/cache-on-demand"
+}
