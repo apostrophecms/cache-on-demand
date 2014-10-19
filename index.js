@@ -1,3 +1,4 @@
+var _ = require('lodash');
 module.exports = cacheOnDemand;
 
 function cacheOnDemand(fn, hasher) {
@@ -61,18 +62,3 @@ function cacheOnDemand(fn, hasher) {
     return fn.apply(this, args);
   };
 }
-
-// The default hasher is designed for use with Express
-// req objects. Only GET and HEAD requests can be cached,
-// requests from a logged-in user cannot be cached
-// (because responses tend to contain personalized
-// information), and the URL is used as the cache key.
-cacheOnDemand.express = function(req) {
-  if ((req.method !== 'GET') && (req.method !== 'HEAD')) {
-    return false;
-  }
-  if (req.user) {
-    return false;
-  }
-  return req.url;
-};

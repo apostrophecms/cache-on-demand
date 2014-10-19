@@ -1,6 +1,6 @@
 {
   "name": "cache-on-demand",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "\"On demand\" caching that kicks in only when requests arrive simultaneously.",
   "main": "index.js",
   "directories": {
@@ -28,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/punkave/cache-on-demand/issues"
   },
-  "homepage": "https://github.com/punkave/cache-on-demand"
+  "homepage": "https://github.com/punkave/cache-on-demand",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  }
 }
