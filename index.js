@@ -1,24 +1,23 @@
-var _ = require('lodash');
 module.exports = cacheOnDemand;
 
 function cacheOnDemand(fn, hasher) {
   if (!hasher) {
     hasher = cacheOnDemand.webHasher;
   }
-  if (typeof(hasher) !== 'function') {
+  if (typeof hasher !== 'function') {
     // Implement 'always'
-    var key = hasher;
+    const key = hasher;
     hasher = function() {
       return key;
     };
   }
-  var pending = {};
+  const pending = {};
   return function() {
     // Get something we can slice
-    var argumentsArray = Array.prototype.slice.call(arguments);
-    var args = argumentsArray.slice(0, argumentsArray.length - 1);
-    var callback = argumentsArray[argumentsArray.length - 1];
-    var key = hasher.apply(this, args);
+    const argumentsArray = Array.prototype.slice.call(arguments);
+    const args = argumentsArray.slice(0, argumentsArray.length - 1);
+    const callback = argumentsArray[argumentsArray.length - 1];
+    const key = hasher.apply(this, args);
     if (key === false) {
       // hasher says this request can't be cached
       return fn.apply(this, arguments);
@@ -32,8 +31,7 @@ function cacheOnDemand(fn, hasher) {
     // start a new pending queue
     pending[key] = [ callback ];
     args.push(function() {
-      var i;
-      var list = pending[key];
+      const list = pending[key];
       // Delete the queue before invoking the callbacks,
       // so we don't risk establishing a chain with no
       // breaks to generate more up-to-date results. The
@@ -44,10 +42,10 @@ function cacheOnDemand(fn, hasher) {
 
       // Capture arguments being passed to callback so we
       // can pass them to deliver()
-      var argumentsArray = Array.prototype.slice.call(arguments);
+      const argumentsArray = Array.prototype.slice.call(arguments);
 
       // Deliver results to everyone in the queue
-      for (i = 0; (i < list.length); i++) {
+      for (let i = 0; (i < list.length); i++) {
         deliver(i);
       }
 
