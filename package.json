@@ -29,7 +29,14 @@
     "url": "https://github.com/punkave/cache-on-demand/issues"
   },
   "homepage": "https://github.com/punkave/cache-on-demand",
-  "dependencies": {
-    "lodash": "^4.0.0"
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-apostrophe": "^3.4.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-standard": "^5.0.0"
   }
 }
