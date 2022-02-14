@@ -3,21 +3,26 @@ const cacheOnDemand = require('../index.js');
 
 describe('cacheOnDemand', () => {
   let didTheWork = 0;
+  let fn;
 
-  const fn = cacheOnDemand(
-    (a, b, callback) => {
-    // Add two numbers, but take 20 ms to do it asynchronously
-      setTimeout(() => {
-        didTheWork++;
+  before(() => {
+    fn = cacheOnDemand(
 
-        const result = a + b;
-        return callback(result);
-      }, 20);
-    },
-    (a, b) => {
-    // hash them by concatenating them
-      return a + ',' + b;
-    });
+      (a, b, callback) => {
+      // Add two numbers, but take 20 ms to do it asynchronously
+        setTimeout(() => {
+          didTheWork++;
+
+          const result = a + b;
+          return callback(result);
+        }, 20);
+      },
+      (a, b) => {
+      // hash them by concatenating them
+        return a + ',' + b;
+      });
+
+  });
 
   it('returns functions', () => {
     assert(fn);
