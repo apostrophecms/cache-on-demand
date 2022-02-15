@@ -25,7 +25,7 @@ describe('cacheOnDemand', () => {
   });
 
   it('returns functions', () => {
-    assert(fn);
+    assert(typeof fn === 'function');
   });
 
   it('delivers result ten times for ten invocations', (done) => {
