@@ -18,7 +18,11 @@ describe('cacheOnDemand', () => {
         }, 20);
       },
       (a, b) => {
-      // hash them by concatenating them
+        // hash them by concatenating them, unless "a" is 100, in which case
+        // it is marked unsafe to cache
+        if (a === 100) {
+          return false;
+        }
         return a + ',' + b;
       });
 
@@ -89,5 +93,27 @@ describe('cacheOnDemand', () => {
   });
   it('now a total of 3 times work has been done', () => {
     assert(didTheWork === 3);
+  });
+
+  it('does the work every time for a third series of invocations that should not be cached', (done) => {
+    let received = 0;
+
+    for (let i = 0; (i < 10); i++) {
+      test();
+    }
+
+    function test() {
+      return fn(100, 100, (result) => {
+        assert(result === 200);
+        received++;
+        if (received === 10) {
+          return done();
+        }
+      });
+    }
+  });
+
+  it('now a total of 13 times work has been done', () => {
+    assert(didTheWork === 13);
   });
 });
