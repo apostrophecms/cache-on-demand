@@ -1,6 +1,6 @@
 {
   "name": "cache-on-demand",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "\"On demand\" caching that kicks in only when requests arrive simultaneously.",
   "main": "index.js",
   "directories": {

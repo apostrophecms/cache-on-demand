@@ -62,6 +62,10 @@ Feel free to open issues on [github](http://github.com/punkave/cache-on-demand).
 
 ## Changelog
 
+### CHANGES IN 1.0.1
+
+Eliminated use of `var` and introduced use of `...` to make the code more maintainable. No functional changes.
+
 ### CHANGES IN 1.0.0
 
 This has been in production use for many moons, so we're declaring 1.0.0 stable. Also bumped the dependencies up to modern releases.
